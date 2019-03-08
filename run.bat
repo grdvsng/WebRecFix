@@ -8,9 +8,9 @@ exit
 
 :def_main
 	REGEDIT /S main.reg
-	echo %cd%\webrec
+	echo %cd%\webrec ^>^> "%ProgramFiles%\webrec\"
 
-	xcopy "%cd%\bin" "C:\Program Files\webrec\" /s /y
-	cls
+	xcopy "%cd%\bin" "%ProgramFiles%\webrec\" /s /y >nul
 	
 	if errorlevel 1 ( echo Please start as Admin. ) else ( echo Done! )
+	exit /b
